@@ -1,0 +1,27 @@
+<div class="bg-container">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-md-6">
+        <div class="d-flex flex-column">
+          <img src="../../../assets/images/Meetup title.svg" class="image" />
+
+          <h1 class="heading">
+            20 years of real connections—for
+            <span style="color: red">{{ word }}</span> that last
+          </h1>
+          <p class="para">
+            Your new community is waiting for you. For 20 years, millions of
+            people have chosen Meetup to make real connections over the things
+            that matter. Start a group today and make 2022 a year of new
+            connection.
+          </p>
+          <button class="btn btn-danger">Start Your Group</button>
+        </div>
+      </div>
+      <div class="col-12 col-md-6">
+        <img [src]="imgLink" />
+      </div>
+    </div>
+  </div>
+</div>
+<app-meetup-tools></app-meetup-tools>

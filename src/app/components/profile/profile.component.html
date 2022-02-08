@@ -1,0 +1,138 @@
+<div class="container-fluid pt-5 pb-5 cont">
+  <div class="row">
+    <div class="col-12">
+      <div class="bg-container">
+        <!-- <div class="d-flex flex-column justify-content-center">
+          <img src="../../assets/images/meetup-logo.png" class="logo mb-4" />
+        </div> -->
+        <h3 class="text-center mt-5">Update Your Profile</h3>
+        <!-- <div class="d-flex justify-content-center">
+          <div class="profile-pic-div-2">
+            <img
+              [src]="testImg"
+              alt="profile_img"
+              class="photo ms-3"
+              id="photo2"
+            />
+            <input type="file" id="file" />
+            <label
+              for="file"
+              class="upload-btn mb-5"
+              id="uploadBtn"
+              (click)="onChange()"
+              >change profile</label
+            >
+          </div>
+        </div> -->
+
+        <form
+          (ngSubmit)="onSubmit(authForm)"
+          #authForm="ngForm"
+          class="form-container"
+        >
+          <div id="user-data">
+            <div class="form-group">
+              <label for="text">Username</label>
+              <input
+                type="text"
+                id="text"
+                class="form-control input"
+                ngModel
+                name="name_text"
+                required
+                text
+                #text1="ngModel"
+              />
+              <span style="color: red" *ngIf="!text1.valid && text1.touched"
+                >*Required</span
+              >
+            </div>
+
+            <div class="form-group">
+              <label for="number">Mobile Number</label>
+              <div class="form-input">
+                <input
+                  type="text"
+                  id="number"
+                  class="form-control input"
+                  ngModel
+                  name="num_text"
+                  required
+                  #text2="ngModel"
+                />
+              </div>
+              <p style="color: red" *ngIf="!text2.valid && text2.touched">
+                *Required
+              </p>
+            </div>
+            <div class="form-group">
+              <label for="text3">Role</label>
+              <div class="form-input">
+                <input
+                  type="text3"
+                  id="text"
+                  class="form-control input"
+                  ngModel
+                  name="role_text"
+                  required
+                  #text3="ngModel"
+                />
+              </div>
+              <p style="color: red" *ngIf="!text3.valid && text3.touched">
+                *Required
+              </p>
+            </div>
+            <div class="form-group">
+              <label for="text4">Company</label>
+              <div class="form-input">
+                <input
+                  type="text"
+                  id="text4"
+                  class="form-control input"
+                  ngModel
+                  name="comp_text"
+                  required
+                  #text4="ngModel"
+                />
+              </div>
+              <p style="color: red" *ngIf="!text4.valid && text4.touched">
+                *Required
+              </p>
+            </div>
+            <div class="form-group">
+              <label for="text5">Experience in years</label>
+              <div class="form-input">
+                <input
+                  type="text"
+                  id="text5"
+                  class="form-control input"
+                  ngModel
+                  name="exp_text"
+                  required
+                  #text5="ngModel"
+                />
+              </div>
+              <p style="color: red" *ngIf="!text5.valid && text5.touched">
+                *Required
+              </p>
+            </div>
+          </div>
+          <button
+            class="btn btn-default"
+            type="button"
+            (click)="suggestUserName()"
+          >
+            Suggest an Username
+          </button>
+          <button
+            class="btn btn-primary mt-4 button-1"
+            type="submit"
+            [disabled]="authForm.invalid"
+          >
+            Update Profile
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

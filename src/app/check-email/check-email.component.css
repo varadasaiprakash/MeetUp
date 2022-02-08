@@ -1,0 +1,168 @@
+.container {
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+}
+
+.image {
+  width: 10%;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+.logo {
+  width: 15%;
+}
+.bg-container {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* height: 500px; */
+  width: 100%;
+  background: linear-gradient(270deg, rgba(255, 255, 255, 0), grey);
+
+  backdrop-filter: blur(px);
+
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+
+  border-radius: 20px;
+  padding-left: 75px;
+  padding-right: 60px;
+  min-height: 100vh;
+}
+
+.heading {
+  color: black;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.para {
+  /* color: grey; */
+  font-size: 20px;
+}
+
+.span {
+  color: blue;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+.sub-container {
+  display: flex;
+  flex-direction: row;
+  border-radius: 10px;
+  align-items: center;
+  justify-content: space-between;
+  width: 400px;
+  height: 50px;
+  border: 1px solid #e6e6e6;
+  cursor: pointer;
+}
+
+.icon {
+  margin-left: 30px;
+}
+
+.description {
+  text-align: center;
+  margin-right: 100px;
+  margin-top: 14px;
+  font-size: 18px;
+}
+label {
+  font-weight: bold;
+}
+
+.eye {
+  font-size: 20px;
+  /* color: black; */
+  cursor: pointer;
+}
+.forgot {
+  float: right;
+}
+
+.form-input {
+  margin: 10px auto;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.para {
+  color: blue;
+  font-size: 20px;
+  cursor: pointer;
+}
+.icon-1 {
+  position: absolute;
+  right: 15px;
+  top: 0;
+  font-size: 25px;
+  color: #4b00ff;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.input {
+  width: 400px;
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+  /* margin-left: 20px; */
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+button {
+  width: 400px;
+  height: 50px;
+  border-radius: 10px;
+  /* margin-left: 20px; */
+  margin-bottom: 20px;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.line {
+  position: relative;
+}
+
+.line:before {
+  content: "";
+  display: block;
+  width: 180px;
+  height: 1px;
+  background: #000;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  z-index: -2;
+}
+.line:after {
+  content: "";
+  display: block;
+  width: 180px;
+  height: 1px;
+  background: #000;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  z-index: -2;
+}
+.text {
+  background: #fff;
+}
+
+input.ng-invalid.ng-touched {
+  border: 1px solid red;
+}

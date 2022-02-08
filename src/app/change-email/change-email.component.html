@@ -1,0 +1,65 @@
+<div class="cont">
+  <img src="../../assets/images/Meetup title.svg" class="image" />
+  <div *ngIf="isLoading" style="text-align: center">
+    <app-spinner></app-spinner>
+  </div>
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-12">
+        <div class="container bg-container pb-5 mb-5">
+          <div class="d-flex justify-content-center">
+            <img src="../../assets/images/meetup-logo.png" class="logo" />
+          </div>
+
+          <h1 class="heading mt-5 text-center mb-5">Change Your Email</h1>
+
+          <div class="alert alert-danger text-center pt-4" *ngIf="isShow2">
+            <p>{{ errorMsg }}</p>
+          </div>
+          <p class="para mb-5 text-center" routerLink="/login" *ngIf="isShow2">
+            Go to Log In
+          </p>
+
+          <div class="alert alert-success text-center pt-4" *ngIf="isShow1">
+            <p>{{ successMsg }}</p>
+          </div>
+          <p class="para mb-5 text-center" routerLink="/login" *ngIf="isShow1">
+            Go to Log In
+          </p>
+
+          <form
+            (ngSubmit)="onSubmit(authForm)"
+            #authForm="ngForm"
+            *ngIf="!isLoading"
+          >
+            <div class="form-group">
+              <label for="email" style="font-weight: bold"
+                >Enter new Email</label
+              >
+              <div class="form-input">
+                <input
+                  type="email"
+                  id="email"
+                  class="form-control input"
+                  ngModel
+                  name="email"
+                  email
+                  required
+                  #email="ngModel"
+                />
+              </div>
+              <p
+                style="color: red; font-weight: 900; font-weight: 26px"
+                *ngIf="!email.valid && email.touched"
+              >
+                Please enter valid email!
+              </p>
+            </div>
+
+            <button class="btn btn-danger" type="submit">Change Email</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

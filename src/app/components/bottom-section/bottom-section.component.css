@@ -1,0 +1,19 @@
+p {
+  font-weight: 1000;
+  font-family: "Roboto";
+  font-size: 38px;
+  line-height: 1.5;
+  margin-bottom: 30px;
+}
+button {
+  height: 50px;
+  width: 50%;
+  border-radius: 12px;
+  font-weight: bold;
+  font-size: 18px;
+}
+img {
+  /* margin-top: 100px; */
+  border-radius: 20px;
+  width: 80%;
+}

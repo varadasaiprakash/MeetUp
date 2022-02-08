@@ -1,0 +1,28 @@
+img {
+  width: 30%;
+}
+
+h1 {
+  font-weight: 900;
+  font-family: "Roboto";
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+p {
+  text-align: center;
+  font-size: 16px;
+}
+
+a {
+  color: red;
+  font-weight: 500;
+  font-family: "Roboto";
+  font-size: 12px;
+}
+/* .card-container {
+  background-color: whitesmoke;
+} */
+.card-container :hover {
+  transform: scale(1.2);
+}

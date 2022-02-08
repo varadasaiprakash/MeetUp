@@ -1,0 +1,105 @@
+<img src="../../assets/images/Meetup title.svg" class="image" />
+<div *ngIf="isLoading" style="text-align: center">
+  <app-spinner></app-spinner>
+</div>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-12">
+      <div class="container bg-container pb-5 mb-5">
+        <div class="d-flex justify-content-center">
+          <img src="../../assets/images/meetup-logo.png" class="logo mt-5" />
+        </div>
+
+        <h1 class="heading mt-1 text-center">Log in</h1>
+        <p class="para mb-5 text-center">
+          Not a member yet?
+          <span routerLink="/register" class="span">Sign up</span>
+        </p>
+
+        <div class="alert alert-danger text-center pt-4" *ngIf="error">
+          <p>{{ error }}</p>
+        </div>
+
+        <form
+          (ngSubmit)="onSubmit(authForm)"
+          #authForm="ngForm"
+          *ngIf="!isLoading"
+        >
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              class="form-control input"
+              ngModel
+              name="email"
+              required
+              email
+              #email="ngModel"
+            />
+            <span style="color: red" *ngIf="!email.valid && email.touched"
+              >Please enter a valid email!</span
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password</label>
+            <a routerLink="/forgetPassword" class="forgot">Forgot Password</a>
+            <div class="form-input">
+              <input
+                type="password"
+                id="password"
+                class="form-control input"
+                ngModel
+                name="password"
+                required
+                #password="ngModel"
+              />
+
+              <span class="icon-1"
+                ><i
+                  class="fas fa-eye eye"
+                  [ngStyle]="{ color: passwordShow ? 'black' : 'grey' }"
+                  (click)="togglePassword()"
+                ></i
+              ></span>
+            </div>
+            <p style="color: red" *ngIf="!password.valid && password.touched">
+              Please enter password
+            </p>
+          </div>
+          <div class="d-flex flex-row align-items-center mb-3 form-group">
+            <input
+              type="checkbox"
+              id="checkbox"
+              class="checkbox form-control"
+              name="checkbox"
+              ngModel
+              required
+              #checkbox="ngModel"
+            />
+            <span>Keep me signed in</span>
+          </div>
+          <p style="color: red" *ngIf="!checkbox.valid && checkbox.touched">
+            Please validate checkbox
+          </p>
+
+          <p *ngIf="!authForm.valid" style="color: red">{{ errorData }}</p>
+          <button class="btn btn-danger" type="submit">Log in</button>
+        </form>
+        <p class="text-center mt-3 mb-5 line"><span class="text">or</span></p>
+
+        <ul *ngFor="let login of loginsDetails; let i = index">
+          <li *ngIf="i !== loginsDetails.length - 1">
+            <div class="sub-container">
+              <img [src]="login.imagePath" alt="image" class="icon" />
+              <p class="description">{{ login.description }}</p>
+            </div>
+          </li>
+        </ul>
+
+        <a href="/login" class="text-center mt-4">Issues with logg in?</a>
+      </div>
+    </div>
+  </div>
+</div>
