@@ -79,8 +79,6 @@ export class LoginComponent implements OnInit, OnDestroy {
       this.authService.getMail(email);
       localStorage.setItem('userEmail', email);
 
-      //  localStorage.setItem('email', this.email);
-
       // let authObs: Observable<AuthResponseData>;
 
       this.isLoading = true;
@@ -90,9 +88,9 @@ export class LoginComponent implements OnInit, OnDestroy {
         (resData: any) => {
           console.log(resData);
           this.isLoading = false;
-          // alert("Login successfull")
+
           this.router.navigate(['/home']);
-          // form.reset();
+          form.reset();
         },
         (errorMessage: any) => {
           console.log(errorMessage);

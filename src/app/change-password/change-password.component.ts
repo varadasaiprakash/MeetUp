@@ -1,7 +1,4 @@
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
-
-import { Register } from '../register.model';
-import { RegisterService } from '../services/register.service';
 import { NgForm } from '@angular/forms';
 import { AuthService, AuthResponseData } from '../services/auth.service';
 import { Observable } from 'rxjs';
@@ -16,7 +13,7 @@ import { Subscription } from 'rxjs';
 export class ChangePasswordComponent implements OnInit {
   @ViewChild('authForm', { static: false })
   signupForm!: NgForm;
-  loginsDetails: Register[] = [];
+
   isLoading = false;
   errorData = '';
   error = '';
@@ -31,11 +28,7 @@ export class ChangePasswordComponent implements OnInit {
   isShow = false;
   passwordMsg = '';
 
-  constructor(
-    private registerService: RegisterService,
-    private router: Router,
-    private authService: AuthService
-  ) {}
+  constructor(private router: Router, private authService: AuthService) {}
 
   ngOnInit(): void {
     this.userSub = this.authService.user.subscribe((user) => {
@@ -69,13 +62,9 @@ export class ChangePasswordComponent implements OnInit {
       return;
     } else {
       this.isShow = true;
-      // const email = form.value.email;
+
       const password = form.value.password;
       console.log(password);
-      // this.authService.sendValidate(this.isShow);
-      // this.authService.getMail(email);
-
-      //  localStorage.setItem('email', this.email);
 
       // let authObs: Observable<AuthResponseData>;
 
@@ -88,9 +77,6 @@ export class ChangePasswordComponent implements OnInit {
           this.isLoading = false;
           this.isShow = true;
           this.passwordMsg = 'Password changed succesfully';
-          // alert('Password changed succesfully');
-          // this.router.navigate(['/login']);
-          // form.reset();
         },
         (errorMessage: any) => {
           console.log(errorMessage);

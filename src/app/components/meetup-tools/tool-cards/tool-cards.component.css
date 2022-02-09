@@ -20,9 +20,7 @@ a {
   font-family: "Roboto";
   font-size: 12px;
 }
-/* .card-container {
-  background-color: whitesmoke;
-} */
+
 .card-container :hover {
   transform: scale(1.2);
 }

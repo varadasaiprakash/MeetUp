@@ -35,8 +35,6 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginsDetails = this.registerService.getLoginDetails();
-
-    // console.log(this.loginsDetails)
   }
 
   public togglePassword() {
@@ -64,8 +62,7 @@ export class RegisterComponent implements OnInit {
       localStorage.setItem('email', this.email);
 
       this.authService.sendMailToCheck(this.email);
-      // this.authService.getMail(this.email);
-      //  localStorage.setItem('email', this.email);
+
       //  let authObs: Observable<AuthResponseData>;
 
       this.isLoading = true;
@@ -77,7 +74,7 @@ export class RegisterComponent implements OnInit {
           console.log(resData);
           console.log(resData.idToken);
           this.isLoading = false;
-          // alert("Successfully Registered")
+
           this.router.navigate(['login']);
         },
         (errorMessage: any) => {

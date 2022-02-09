@@ -3,76 +3,90 @@
     <div class="col-12">
       <div class="bg-container">
         <h3 class="text-center mt-5 mb-5">Update Your Profile</h3>
-        <!-- <button class="btn btn-primary" type="button" onclick="onClear()">
-          Clear Form
-        </button> -->
 
         <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
-          <div formGroupName="userData">
-            <div class="form-group">
-              <label for="username">Username</label>
+          <!-- <div formGroupName="userData"> -->
+          <div class="form-group">
+            <label for="username">Username</label>
 
-              <input
-                type="text"
-                id="username"
-                formControlName="name_text"
-                class="form-control"
-              />
-              <span
-                style="color: red"
-                *ngIf="!name_text.valid && name_text.touched"
-                >*Required</span
-              >
-            </div>
-            <div class="form-group">
-              <label for="username">Mobile Number</label>
-
-              <input
-                type="text"
-                id="username"
-                formControlName="num_text"
-                class="form-control"
-              />
-            </div>
-            <div class="form-group">
-              <label for="username">Designation</label>
-
-              <input
-                type="text"
-                id="username"
-                formControlName="role_text"
-                class="form-control"
-              />
-            </div>
-
-            <div class="form-group">
-              <label for="username">Company</label>
-
-              <input
-                type="text"
-                id="username"
-                formControlName="comp_text"
-                class="form-control"
-              />
-            </div>
-            <div class="form-group">
-              <label for="username">Experience</label>
-
-              <input
-                type="text"
-                id="username"
-                formControlName="exp_text"
-                class="form-control"
-              />
-            </div>
+            <input
+              type="text"
+              id="username"
+              formControlName="name_text"
+              class="form-control"
+            />
+            <small *ngIf="name?.invalid && name?.touched" class="text-danger"
+              >*This field is Required</small
+            >
           </div>
+
+          <div class="form-group">
+            <label for="username">Mobile Number</label>
+
+            <input
+              type="text"
+              id="username"
+              formControlName="num_text"
+              class="form-control"
+            />
+            <small
+              *ngIf="number?.invalid && number?.touched"
+              class="text-danger"
+              >*This field is Required</small
+            >
+          </div>
+          <div class="form-group">
+            <label for="username">Designation</label>
+
+            <input
+              type="text"
+              id="username"
+              formControlName="role_text"
+              class="form-control"
+            />
+            <small *ngIf="role?.invalid && role?.touched" class="text-danger"
+              >*This field is Required</small
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="username">Company</label>
+
+            <input
+              type="text"
+              id="username"
+              formControlName="comp_text"
+              class="form-control"
+            />
+            <small
+              *ngIf="company?.invalid && company?.touched"
+              class="text-danger"
+              >*This field is Required</small
+            >
+          </div>
+          <div class="form-group">
+            <label for="username">Experience</label>
+
+            <input
+              type="text"
+              id="username"
+              formControlName="exp_text"
+              class="form-control"
+            />
+            <small
+              *ngIf="experience?.invalid && experience?.touched"
+              class="text-danger"
+              >*This field is Required</small
+            >
+          </div>
+          <!-- </div> -->
 
           <p *ngIf="!signupForm.valid && signupForm.touched" class="help-block">
             Please enter valid data!
           </p>
           <div class="d-flex justify-content-between mt-5">
             <button class="btn btn-primary" type="button" routerLink="/home">
-              Back
+              Back to Home
             </button>
 
             <button

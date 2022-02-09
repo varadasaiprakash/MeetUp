@@ -1,9 +1,5 @@
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
-
-// import { Register } from '../register.model';
-// import { RegisterService } from '../services/register.service';
 import { NgForm } from '@angular/forms';
-// import { AuthService, AuthResponseData } from '../services/auth.service';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -20,7 +16,7 @@ export class CheckEmailComponent implements OnInit {
   check: any;
   @ViewChild('authForm', { static: false })
   signupForm!: NgForm;
-  loginsDetails: Register[] = [];
+
   isLoading = false;
   errorData = '';
 
@@ -44,7 +40,6 @@ export class CheckEmailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // this.loginsDetails = this.registerService.getLoginDetails();
     this.userSub = this.authService.user.subscribe((user) => {
       this.isAuthenticated = !!user;
       console.log(!user);
@@ -72,9 +67,7 @@ export class CheckEmailComponent implements OnInit {
       this.isAuthenticated = true;
       return;
     } else {
-      // this.isShow = true;
       const email = form.value.email;
-      // const password = form.value.password;
       console.log(email);
 
       this.authService.forgetPassword(email).subscribe(
@@ -86,19 +79,14 @@ export class CheckEmailComponent implements OnInit {
 
           this.isShow1 = true;
           this.isShow2 = false;
-          // alert('check Your Email');
-          // alert('check your email and click on link to reset your password');
         },
         (err: any) => {
           console.log(err);
           this.errorMsg = 'Email Does not Exist';
           this.isShow2 = true;
           this.isShow1 = false;
-          // alert('Email Does not Exist');
         }
       );
-
-      //  localStorage.setItem('email', this.email);
     }
   }
 }

@@ -2,14 +2,7 @@
   background: rgb(238, 238, 238);
   min-width: 100%;
   background-size: cover;
-  /* min-height: ; */
 }
-
-/* .row {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-} */
 
 h1 {
   font-family: "Roboto";
@@ -19,13 +12,9 @@ h1 {
 }
 
 p {
-  /* font-family: "Roboto";
-  font-weight: 100; */
-  /* font-size: 20px; */
   text-align: center;
   line-height: 1.625rem;
   font-size: 0.9907rem;
   color: #000000;
   width: 60%;
-  /* margin-left: 240px; */
 }

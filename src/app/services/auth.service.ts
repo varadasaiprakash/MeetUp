@@ -18,13 +18,12 @@ export interface AuthResponseData {
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  // msg = null;
   user = new BehaviorSubject<any>(null);
   private tokenExpirationTimer: any;
 
   email: string = '';
   check: string = '';
-  // password: string = ""
+
   isShow = '';
   item: any;
   errorMessage: any;
@@ -33,35 +32,11 @@ export class AuthService {
 
   sendMailToCheck(email: string) {
     this.check = email;
-    // console.log(this.check);
   }
 
   sendEmailToComponent() {
     return this.check;
   }
-
-  // signup(email: string, password: string) {
-  //   return this.http
-  //     .post<AuthResponseData>(
-  //       'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyAmi0jqUFZn9tnF3AB3PQLgVjX3nEnleFg',
-  //       {
-  //         email: email,
-  //         password: password,
-  //         returnSecureToken: true
-  //       }
-  //     )
-  //     .pipe(
-  //       catchError(this.handleError),
-  //       // tap(resData => {
-  //       //   this.handleAuthentication(
-  //       //     resData.email,
-  //       //     resData.localId,
-  //       //     resData.idToken,
-  //       //     +resData.expiresIn
-  //       //   );
-  //       // })
-  //     );
-  // }
 
   getMail(email: string) {
     this.email = email;
@@ -196,7 +171,6 @@ export class AuthService {
         .post<AuthResponseData>(
           'https://identitytoolkit.googleapis.com/v1/accounts:update?key=AIzaSyAmi0jqUFZn9tnF3AB3PQLgVjX3nEnleFg',
           {
-            // email: email,
             idToken: userData._token,
             password: password,
             returnSecureToken: true,
@@ -215,17 +189,7 @@ export class AuthService {
         //     return throwError(errorMessage);
         //   })
         // );
-        .pipe(
-          catchError(this.handleError)
-          // tap((resData) => {
-          //   this.handleAuthentication(
-          //     resData.email,
-          //     resData.localId,
-          //     resData.idToken,
-          //     +resData.expiresIn
-          //   );
-          // })
-        )
+        .pipe(catchError(this.handleError))
     );
   }
 
@@ -260,17 +224,7 @@ export class AuthService {
         //     return throwError(errorMessage);
         //   })
         // );
-        .pipe(
-          catchError(this.handleError)
-          // tap((resData) => {
-          //   this.handleAuthentication(
-          //     resData.email,
-          //     resData.localId,
-          //     resData.idToken,
-          //     +resData.expiresIn
-          //   );
-          // })
-        )
+        .pipe(catchError(this.handleError))
     );
   }
 
@@ -285,7 +239,6 @@ export class AuthService {
         .post<AuthResponseData>(
           'https://identitytoolkit.googleapis.com/v1/accounts:delete?key=AIzaSyAmi0jqUFZn9tnF3AB3PQLgVjX3nEnleFg',
           {
-            // email: email,
             idToken: userData._token,
           }
         )
@@ -302,17 +255,7 @@ export class AuthService {
         //     return throwError(errorMessage);
         //   })
         // );
-        .pipe(
-          catchError(this.handleError)
-          // tap((resData) => {
-          //   this.handleAuthentication(
-          //     resData.email,
-          //     resData.localId,
-          //     resData.idToken,
-          //     +resData.expiresIn
-          //   );
-          // })
-        )
+        .pipe(catchError(this.handleError))
     );
   }
 
@@ -339,64 +282,9 @@ export class AuthService {
         //     return throwError(errorMessage);
         //   })
         // );
-        .pipe(
-          catchError(this.handleError)
-          // tap((resData) => {
-          //   this.handleAuthentication(
-          //     resData.email,
-          //     resData.localId,
-          //     resData.idToken,
-          //     +resData.expiresIn
-          //   );
-          // })
-        )
+        .pipe(catchError(this.handleError))
     );
   }
-
-  // updateProfile(data: any): any {
-  //   this.item = localStorage.getItem('userData');
-  //   console.log(this.item);
-  //   const userData: { _token: string } = JSON.parse(this.item);
-  //   return (
-  //     this.http
-  //       .post<AuthResponseData>(
-  //         'https://identitytoolkit.googleapis.com/v1/accounts:update?key=AIzaSyAmi0jqUFZn9tnF3AB3PQLgVjX3nEnleFg',
-  //         {
-  //           idToken: userData._token,
-  //           userName: data.name_text,
-  //           mobileNumber: data.num_text,
-  //           role: data.role_text,
-  //           company: data.comp_text,
-  //           experience: data.exp_text,
-  //           returnSecureToken: true,
-  //         }
-  //       )
-  //       // .pipe(
-  //       //   catchError(errorRes => {
-  //       //     let errorMessage = 'An unknown error occurred!';
-  //       //     if (!errorRes.error || !errorRes.error.error) {
-  //       //       return throwError(errorMessage);
-  //       //     }
-  //       //     switch (errorRes.error.error.message) {
-  //       //       case 'EMAIL_EXISTS':
-  //       //         errorMessage = 'This email exists already';
-  //       //     }
-  //       //     return throwError(errorMessage);
-  //       //   })
-  //       // );
-  //       .pipe(
-  //         catchError(this.handleError),
-  //         tap((resData) => {
-  //           this.handleAuthentication(
-  //             resData.email,
-  //             resData.localId,
-  //             resData.idToken,
-  //             +resData.expiresIn
-  //           );
-  //         })
-  //       )
-  //   );
-  // }
 
   private handleAuthentication(
     email: string,
@@ -409,12 +297,7 @@ export class AuthService {
     this.user.next(user);
     this.autoLogout(expiresIn * 1000);
     return localStorage.setItem('userData', JSON.stringify(user));
-
-    // this.item = localStorage.getItem('userData');
-    // console.log(this.item);
   }
-
-  // var a = ({ _token: string } = this.item);
 
   autoLogin() {
     this.item = localStorage.getItem('userData');
@@ -425,9 +308,7 @@ export class AuthService {
       _token: string;
       _tokenExpirationDate: string;
     } = JSON.parse(this.item);
-    // console.log(JSON.parse(this.item));
 
-    // console.log(userData.email);
     if (!userData) {
       return;
     }

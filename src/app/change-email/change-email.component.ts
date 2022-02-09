@@ -53,33 +53,14 @@ export class ChangeEmailComponent implements OnInit {
     this.userSub.unsubscribe();
   }
 
-  public togglePassword() {
-    if (this.passwordShow) {
-      document.getElementById('password')?.setAttribute('type', 'password');
-
-      this.passwordShow = false;
-    } else {
-      document.getElementById('password')?.setAttribute('type', 'text');
-      this.passwordShow = true;
-    }
-  }
-
   onSubmit(form: NgForm) {
     if (!form.valid) {
       this.errorData = 'User Data is invalid!';
       this.isAuthenticated = true;
       return;
     } else {
-      // this.isShow = true;
-      // const email = form.value.email;
       const email = form.value.email;
       console.log(email);
-      // this.authService.sendValidate(this.isShow);
-      // this.authService.getMail(email);
-
-      //  localStorage.setItem('email', this.email);
-
-      // let authObs: Observable<AuthResponseData>;
 
       this.isLoading = true;
       // authObs = this.authService.changePassword(password);
@@ -91,10 +72,6 @@ export class ChangeEmailComponent implements OnInit {
           this.successMsg = 'Email changed succesfully';
           this.isShow1 = true;
           this.isShow2 = false;
-
-          // alert('Password changed succesfully');
-          // this.router.navigate(['/login']);
-          // form.reset();
         },
         (errorMessage: any) => {
           console.log(errorMessage);

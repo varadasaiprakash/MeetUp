@@ -75,10 +75,6 @@ export class ProfileComponent implements OnInit {
         this.reader.addEventListener('load', () => {
           this.link = this.reader.result;
           console.log(this.link);
-          // this.imgEl.setAttribute('src', this.reader.result);
-          // this.imageEl.setAttribute('src', this.reader.result);
-          // localStorage.setItem('imgLink', this.reader.result);
-          // this.imgLink = localStorage.getItem("imgLink")
         });
         this.reader.readAsDataURL(this.choosedFile);
       }

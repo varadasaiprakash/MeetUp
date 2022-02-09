@@ -16,7 +16,6 @@ export class HeaderComponent implements OnInit {
   imageEl: any;
   fileEl: any;
   imgEl: any;
-  // img: any;
   reader: any;
   choosedFile: any;
   email: string = '';
@@ -31,10 +30,7 @@ export class HeaderComponent implements OnInit {
   successMsg = '';
   isShow1 = false;
   isShow2 = false;
-  // data: any;
-  // butText = 'Create User Profile';
 
-  // token: any;
   img: any = '';
 
   userEmail: any = localStorage.getItem('userEmail');
@@ -51,7 +47,7 @@ export class HeaderComponent implements OnInit {
     private route: Router,
     private router: ActivatedRoute
   ) {}
-  // token = JSON.parse(localStorage.getItem('userData'))._token;
+
   testImg: any = localStorage.getItem('img');
 
   ngOnInit() {
@@ -60,19 +56,11 @@ export class HeaderComponent implements OnInit {
       console.log(!user);
       console.log(!!user);
     });
-    // console.log(this.userData);
-    // console.log(this.userData.email);
-    // console.log(this.name);
 
     this.isShow = this.authService.sendTOHeader();
-    // this.img = 'https://www.pngitem.com/pimgs/b/78-786293_avatar-png-icon.png';
-    // this.data = this.authService.getData();
 
     this.email = this.authService.sendEmail();
     console.log(this.email);
-
-    //   this.emailEl = email
-    // }
 
     this.profileContainerEl = document.getElementById('profileContainer');
     this.imageEl = document.getElementById('image');
@@ -84,7 +72,6 @@ export class HeaderComponent implements OnInit {
     this.imageEl.addEventListener('click', show);
 
     this.imgEl = document.getElementById('photo');
-    // this.img = document.getElementById('photo2');
     this.fileEl = document.getElementById('file');
 
     this.fileEl.addEventListener('change', () => {
@@ -105,19 +92,14 @@ export class HeaderComponent implements OnInit {
   }
 
   onClickCreateProfile() {
-    // this.userClick = true;
-    // this.butText = "check Your Profile";
-    // this.userClick = true;
     this.profileContainerEl.classList.toggle('visibility');
     this.checkBtn.classList.add('visible');
-    // this.createBtn.classList.add('not-visible');
 
     this.route.navigate(['profile']);
   }
 
   onCheckProfile() {
     this.userClick = true;
-    // this.profileContainerEl.classList.toggle('visibility');
   }
   onCancel() {
     this.userClick = false;
@@ -136,17 +118,11 @@ export class HeaderComponent implements OnInit {
         console.log(res);
         alert('Account Deleted Successfully');
         this.route.navigate(['register']);
-        // this.successMsg =
-        //   'check your email and click on link to reset your password';
-        // alert('check Your Email');
         this.isShow1 = true;
         this.isShow2 = false;
-
-        // alert('check your email and click on link to reset your password');
       },
       (err: any) => {
         console.log(err);
-        // this.errorMsg = 'Email Does not Exist';
         this.isShow2 = true;
         this.isShow1 = false;
         alert('User Not Found');
